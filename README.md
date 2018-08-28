@@ -5,7 +5,7 @@
 本系统是使用SpringBoot开发的高并发限时抢购秒杀系统，除了实现基本的登录、查看商品列表、秒杀、下单等功能，项目中还针对高并发情况实现了系统缓存、降级和限流。
 
 ## 开发工具
-IntelliJ IDEA + Navicat + Sublime Text3 + Git + Chrome
+Eclipse + Git + Chrome
 
 ## 压测工具
 JMeter
@@ -16,7 +16,7 @@ JMeter
 
 后端技术 ：SpringBoot + MyBatis + MySQL
 
-中间件技术 : Druid + Redis + RabbitMQ + Guava
+中间件技术 : Druid + Redis + RabbitMQ
 
 ## 秒杀优化方向
 
@@ -85,9 +85,7 @@ JMeter
 ### 10. 通过在Redis设置在规定时间内可以点击的次数来实现限流 
 描述：当我们去秒杀一些商品时，此时可能会因为访问量太大而导致系统崩溃，此时要使用限流来进行限制访问量，通过在初次点击开始算起，每点击一次，对该用户请求的URL在Redis里存储次数加一，当超过规定次数时返回错误，告诉用户请求太频繁。
 
-实现：
-
-可以在要限制访问次数的接口上面设置注解，通过spring框架的来实现HandlerInterceptorAdapter接口，可以设置一个拦截器，在用户请求接口时执行该拦截器方法，当Redis里面存储的对应用户的URL请求次数超过规定就返回错误，告诉告诉用户请求太频繁。在拦截器里也可以做判断用户是否登录功能。
+实现：可以在要限制访问次数的接口上面设置注解，通过spring框架的来实现HandlerInterceptorAdapter接口，可以设置一个拦截器，在用户请求接口时执行该拦截器方法，当Redis里面存储的对应用户的URL请求次数超过规定就返回错误，告诉告诉用户请求太频繁。在拦截器里也可以做判断用户是否登录功能。
 
 
 
