@@ -4,7 +4,7 @@
 本系统是使用SpringBoot开发的高并发限时抢购秒杀系统，除了实现基本的登录、查看商品列表、秒杀、下单等功能，项目中还针对高并发情况实现了系统缓存、降级和限流。
 
 开发工具
-IntelliJ IDEA + Navicat + Sublime Text3 + Git + Chrome
+Eclipse + Git + Chrome
 
 压测工具
 JMeter
@@ -14,7 +14,7 @@ JMeter
 
 后端技术 ：SpringBoot + MyBatis + MySQL
 
-中间件技术 : Druid + Redis + RabbitMQ + Guava
+中间件技术 : Druid + Redis + RabbitMQ
 
 秒杀优化方向
 将请求尽量拦截在系统上游：传统秒杀系统之所以挂，请求都压倒了后端数据层，数据读写锁冲突严重，几乎所有请求都超时，流量虽大，下单成功的有效流量甚小，我们可以通过限流、降级等措施来最大化减少对数据库的访问，从而保护系统。
